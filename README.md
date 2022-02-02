@@ -1,4 +1,4 @@
-<h1 align="center">PokeNext
+<h1 align="center">Weather App
 </h1>
 
 <h2 align="center">🚧 A plataforna ainda se encontra em fase de construção 🚧</h2>
