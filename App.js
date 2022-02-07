@@ -3,6 +3,8 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import * as Location from 'expo-location';
 
+import Weatherinfo from './components/Weatherinfo';
+
 const WEATHER_API_KEY = 'ef4d6befb805f4ec72f0fa77a58f5bda';
 const BASE_WEATHER_URL = 'https://api.openweathermap.org/data/2.5/weather?';
 
@@ -53,10 +55,9 @@ export default function App() {
     const { main : {temp} } = currentWeather;
     return (
       <View style={styles.container}>
-        <View styles={style.}>
-
+        <View style={styles.main}>
+          <Weatherinfo currentWeather={currentWeather} />
         </View>
-        <Text style={styles.text}>Temperatura = {temp}°C</Text>
         <StatusBar style="auto" />
       </View>
     )} else {
@@ -72,15 +73,16 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#303C42',
     alignItems: 'center',
+    backgroundColor: '#fff',
+    flex: 1,
     justifyContent: 'center',
   },
   text: {
     color: '#fff',
   },
   main: {
-
+    flex: 1,
+    justifyContent: 'center',
   },
 });
