@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, Image } from 'react-native';
 import React from 'react';
 import { colors } from '../utils/index'
 
-const { PRIMARY_COLOR, SECONDARY_COLOR, BORDER_COLOR } = colors;
+const { PRIMARY_COLOR, SECONDARY_COLOR } = colors;
 
 export default function Weatherinfo({ currentWeather }) {
     const { 

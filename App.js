@@ -6,6 +6,9 @@ import * as Location from 'expo-location';
 // componentes
 import Weatherinfo from './components/Weatherinfo';
 import UnitsPickers from './components/UnitsPickers';
+import ReloadIcon from './components/ReloadIcon';
+
+import { colors } from './utils/index';
 
 const WEATHER_API_KEY = 'ef4d6befb805f4ec72f0fa77a58f5bda';
 const BASE_WEATHER_URL = 'https://api.openweathermap.org/data/2.5/weather?';
@@ -21,6 +24,9 @@ export default function App() {
 
   // função de loading
   async function loading() {
+    setCurrentWeather(null);
+    setErrorMessage(null);
+
     try {
       let { status } = await Location.requestForegroundPermissionsAsync();
 
@@ -61,6 +67,7 @@ export default function App() {
             setUnitsSystem={setUnitsSystem}
           />
           <Weatherinfo currentWeather={currentWeather} />
+          <ReloadIcon loading={loading} />
         </View>
         <StatusBar style="auto" />
       </View>
@@ -74,7 +81,10 @@ export default function App() {
     } else {
       return (
         <View style={styles.container}>
-          <ActivityIndicator />
+          <ActivityIndicator 
+            size="large"
+            color={colors.PRIMARY_COLOR}
+          />
           <StatusBar style="auto" />
         </View>
       )
