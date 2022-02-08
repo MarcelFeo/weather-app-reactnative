@@ -1,7 +1,7 @@
 <h1 align="center">Weather App
 </h1>
 
-<h2 align="center">🚧 A plataforna ainda se encontra em fase de construção 🚧</h2>
+<h2 align="center">🚧 O aplicativo ainda se encontra em fase de construção 🚧</h2>
 
 ## 💻 Sobre o projeto
 
