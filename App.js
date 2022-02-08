@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
 import * as Location from 'expo-location';
 
+// componentes
 import Weatherinfo from './components/Weatherinfo';
+import UnitsPickers from './components/UnitsPickers';
 
 const WEATHER_API_KEY = 'ef4d6befb805f4ec72f0fa77a58f5bda';
 const BASE_WEATHER_URL = 'https://api.openweathermap.org/data/2.5/weather?';
@@ -15,7 +17,7 @@ export default function App() {
 
   useEffect(() => {
     loading()
-  }, []);
+  }, [unitsSystem]);
 
   // função de loading
   async function loading() {
@@ -31,7 +33,7 @@ export default function App() {
       const location = await Location.getCurrentPositionAsync();
       const {latitude, longitude} = location.coords;
 
-      const weatherUrl = `${BASE_WEATHER_URL}lat=${latitude}&lon=${longitude}&units=${unitsSystem}&appid=${WEATHER_API_KEY}`;
+      const weatherUrl = `${BASE_WEATHER_URL}lang=pt_br&lat=${latitude}&lon=${longitude}&units=${unitsSystem}&appid=${WEATHER_API_KEY}`;
 
       // API Request
       const response = await fetch(weatherUrl);
@@ -51,25 +53,33 @@ export default function App() {
   }
 
   if(currentWeather) {
-    // temperatura atual
-    const { main : {temp} } = currentWeather;
     return (
       <View style={styles.container}>
         <View style={styles.main}>
+          <UnitsPickers 
+            unitsSystem={unitsSystem} 
+            setUnitsSystem={setUnitsSystem}
+          />
           <Weatherinfo currentWeather={currentWeather} />
         </View>
         <StatusBar style="auto" />
       </View>
-    )} else {
+    )} else if(errorMessage) {
       return (
         <View style={styles.container}>
           <Text style={styles.txt}>{errorMessage}</Text>
           <StatusBar style="auto" />
         </View>
       )
-    }
-  }
-
+    } else {
+      return (
+        <View style={styles.container}>
+          <ActivityIndicator />
+          <StatusBar style="auto" />
+        </View>
+      )
+  }  
+}
 
 const styles = StyleSheet.create({
   container: {

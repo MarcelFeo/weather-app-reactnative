@@ -11,6 +11,8 @@ export default function Weatherinfo({ currentWeather }) {
         name,
     } = currentWeather;
 
+    const roundTemp = Math.round(temp);
+
     const { icon, main, description } = details;
     const iconUrl = `https://openweathermap.org/img/wn/${icon}@4x.png`;
 
@@ -21,7 +23,7 @@ export default function Weatherinfo({ currentWeather }) {
             style={styles.weatherIcon}
             source={{ uri: iconUrl }}
         />
-        <Text style={styles.textTemp}>{ temp }°C</Text>
+        <Text style={styles.textTemp}>{ roundTemp }°</Text>
         <Text style={styles.weatherDescription}>{ description }</Text>
         <Text style={styles.textMain}>{ main }</Text>
     </View>
