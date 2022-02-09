@@ -7,6 +7,7 @@ import * as Location from 'expo-location';
 import Weatherinfo from './components/Weatherinfo';
 import UnitsPickers from './components/UnitsPickers';
 import ReloadIcon from './components/ReloadIcon';
+import WeatherDetails from './components/WeatherDetails';
 
 import { colors } from './utils/index';
 
@@ -62,13 +63,19 @@ export default function App() {
     return (
       <View style={styles.container}>
         <View style={styles.main}>
-          <UnitsPickers 
-            unitsSystem={unitsSystem} 
-            setUnitsSystem={setUnitsSystem}
-          />
+          <View style={styles.unitsPickers}>
+            <UnitsPickers 
+              unitsSystem={unitsSystem} 
+              setUnitsSystem={setUnitsSystem}
+            />
+          </View>
           <Weatherinfo currentWeather={currentWeather} />
           <ReloadIcon loading={loading} />
         </View>
+        <WeatherDetails 
+          currentWeather={currentWeather} 
+          unitsSystem={unitsSystem}
+        />
         <StatusBar style="auto" />
       </View>
     )} else if(errorMessage) {
@@ -98,11 +105,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
   },
-  text: {
-    color: '#fff',
-  },
   main: {
     flex: 1,
     justifyContent: 'center',
   },
+  unitsPickers: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  }
 });

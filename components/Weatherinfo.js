@@ -19,11 +19,13 @@ export default function Weatherinfo({ currentWeather }) {
   return (
     <View style={styles.weatherInfoContainer}>
         <Text style={styles.title}>{ name }</Text>
-        <Image 
-            style={styles.weatherIcon}
-            source={{ uri: iconUrl }}
-        />
-        <Text style={styles.textTemp}>{ roundTemp }°</Text>
+        <View style={styles.tempContainer}>
+            <Text style={styles.textTemp}>{ roundTemp }°</Text>
+            <Image 
+                style={styles.weatherIcon}
+                source={{ uri: iconUrl }}
+            />
+        </View>
         <Text style={styles.weatherDescription}>{ description }</Text>
         <Text style={styles.textMain}>{ main }</Text>
     </View>
@@ -54,5 +56,11 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: '500',
         marginTop: 10,
+    },
+    tempContainer: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        textAlign: 'center',
     }
 })
