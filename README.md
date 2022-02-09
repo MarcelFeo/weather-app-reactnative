@@ -1,11 +1,10 @@
 <h1 align="center">Weather App
 </h1>
 
-<h2 align="center">🚧 O aplicativo ainda se encontra em fase de construção 🚧</h2>
-
 ## 💻 Sobre o projeto
 
-O projeto consiste em uma pokedex usando o Next.js
+O projeto consiste em aplicativo que extrai a localização do usuário e informa detalhes do clima da cidade.
+APK do aplicativo => https://expo.dev/artifacts/bfce151c-4faa-4ec9-9d79-ae502de210a1
 
 ## 🛠 Tecnologias
 
