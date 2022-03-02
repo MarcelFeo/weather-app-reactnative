@@ -4,7 +4,7 @@
 ## 💻 Sobre o projeto
 
 O projeto consiste em aplicativo que extrai a localização do usuário e informa detalhes do clima da cidade.<br>
-APK do aplicativo => https://expo.dev/artifacts/bfce151c-4faa-4ec9-9d79-ae502de210a1
+APK do aplicativo 👉 https://expo.dev/artifacts/bfce151c-4faa-4ec9-9d79-ae502de210a1
 
 ## 🛠 Tecnologias
 
